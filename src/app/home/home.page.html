@@ -1,20 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<app-my-header variant="2"></app-my-header>
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <app-function-form (functionAddEvent)="getFunc($event)"></app-function-form>
+    </ion-card-content>
+    <ion-item>
+      <p>Calculated Value: {{calculateNext()}}</p>
+    </ion-item>
+  </ion-card>
 </ion-content>

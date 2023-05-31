@@ -1,0 +1,23 @@
+<form [formGroup]="functionForm" (ngSubmit)="onSubmit()">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Calculate Next Function</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-select value="0" #funcSelect>
+          <ng-container *ngFor="let func of functionTypes; let i = index">
+            <ion-select-option value="{{i}}">{{func.name}}</ion-select-option>
+          </ng-container>
+        </ion-select>
+        <ion-button (click)="applyFuncSelect(funcSelect.value)">Select function</ion-button>
+      </ion-item>
+      <ion-list *ngFor="let paramType of functionTypes[selectedFunction].paramTypes; let i = index">
+        <ion-item>
+          <ion-input formControlName="{{paramType}}" id="{{paramType}}" placeholder="{{paramType}}" type="number"></ion-input>
+        </ion-item>
+      </ion-list>
+      <ion-button (click)="onSubmit()">Calculate</ion-button>
+    </ion-card-content>
+  </ion-card>
+</form>
